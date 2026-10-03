@@ -45,6 +45,7 @@
       setVerdict('none','Waiting','Fill in the dates to see your result','');
       ['checksCard','tlCard','msgCard'].forEach(id=>$(id).hidden=true);
       renderMoney(cur,nw,null,agr,notice,start);
+      emitDates([]);
       return;
     }
 
@@ -98,6 +99,11 @@
 
     renderTimeline(last,twelve,notice,noticeEnd,start,fails.length>0,isNew,periodLabel);
     renderMoney(cur,nw,fails.length>0,agr,notice,start);
+    var ev=[];
+    if(fails.length && !fails.includes('terms')) ev.push({date:earliest,title:'Earliest legal date for your new rent',desc:'Based on your answers, this is the earliest date your Queensland rent increase can legally start. You don\u2019t have to pay the higher rent before then.'});
+    else if(!fails.length) ev.push({date:start,title:'New rent starts',desc:'Your new rent amount starts today, based on the notice you checked.'});
+    if(!isNew && notice) ev.push({date:addDays(notice,30),title:'Last day to apply to QCAT about the rent increase',desc:'If you think the increase is excessive, today is the last day to apply to QCAT (30 days after you received the notice'+(agr==='fixed'?', and it must be before your lease ends':'')+').',remind:7});
+    emitDates(ev,'https://rentrise.au/qld/');
     renderMessage(fails,unknown,{last,twelve,notice,start,earliest,periodLabel,isNew,agr});
   }
 
@@ -155,5 +161,6 @@
     $('msgTitle').textContent=title; $('msg').textContent=body; $('msgCard').hidden=false;
   }
 
+  function emitDates(ev,url){ document.dispatchEvent(new CustomEvent('rr:dates',{detail:{events:ev,url:url}})); }
   run();
 })();

@@ -250,3 +250,15 @@ ul.plain b{color:var(--ink)}
 .contact input:user-invalid,.contact textarea:user-invalid{border-color:var(--bad)}
 
 .hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
+
+/* About page values */
+.values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:720px}
+@media (max-width:520px){.values{grid-template-columns:minmax(0,1fr)}}
+.values > div{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.values p{margin:0;color:var(--muted);font-size:14.5px}
+
+/* Calendar card */
+.cal-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.cal-list li{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-left:3px solid var(--maroon);padding-left:10px}
+.cal-list .d{font:500 14px var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+#calStatus:empty{display:none}

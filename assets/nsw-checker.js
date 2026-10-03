@@ -41,6 +41,7 @@
       setVerdict('none','Waiting','Fill in the dates to see your result','');
       ['checksCard','tlCard','msgCard'].forEach(id=>$(id).hidden=true);
       renderMoney(cur,nw,notice);
+      emitDates([]);
       return;
     }
 
@@ -97,6 +98,11 @@
 
     renderTimeline(baseline,start,twelve,notice,noticeEnd,ns,fails.length>0,legacy&&terms==='yes');
     renderMoney(cur,nw,notice);
+    var ev=[];
+    if(fails.length && !fails.includes('terms')) ev.push({date:earliest,title:'Earliest legal date for your new rent',desc:'Based on your answers, this is the earliest date your NSW rent increase can legally start. You don\u2019t have to pay the higher rent before then.'});
+    else if(!fails.length) ev.push({date:ns,title:'New rent starts',desc:'Your new rent amount starts today, based on the notice you checked.'});
+    if(notice) ev.push({date:addDays(notice,30),title:'Last day to apply to NCAT about the rent increase',desc:'If you think the increase is excessive, today is the last day to apply to NCAT (30 days after you received the notice).',remind:7});
+    emitDates(ev,'https://rentrise.au/nsw/');
     renderMessage(fails,unknown,{baseline,start,twelve,notice,ns,earliest});
   }
 
@@ -143,5 +149,6 @@
     }
     $('msgTitle').textContent=title; $('msg').textContent=body; $('msgCard').hidden=false;
   }
+  function emitDates(ev,url){ document.dispatchEvent(new CustomEvent('rr:dates',{detail:{events:ev,url:url}})); }
   run();
 })();
