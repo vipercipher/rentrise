@@ -29,7 +29,7 @@ We built RentRise to close that gap. It does the date maths for you, explains th
 
 ## How to use it
 
-1. **Go to [rentrise.au](https://rentrise.au) and pick your state.** Queensland and New South Wales are available now.
+1. **Go to [rentrise.au](https://rentrise.au) and pick your state.** Queensland, New South Wales and Victoria are available now.
 2. **Answer a few questions from your notice and lease,** including:
    - your type of lease (periodic or fixed term)
    - when your current rent started, or your last increase
@@ -41,11 +41,11 @@ We built RentRise to close that gap. It does the date maths for you, explains th
    - the **earliest date** the new rent can legally start
    - a timeline of your key dates
    - how much the increase costs per week and per year
-   - your **deadline to dispute** an excessive increase at the tribunal (QCAT or NCAT)
+   - your **deadline to challenge** an excessive increase (QCAT, NCAT or a Consumer Affairs Victoria rent assessment)
 4. **Take action.** Copy the ready-to-write message to your agent or landlord, fill in your details and send it by email so you have a record. If you need advice about your situation, the page lists free official help services in your state.
 
 Want the rules first? Each state has a plain-English guide:
-[Queensland rules](https://rentrise.au/qld/rules/) · [NSW rules](https://rentrise.au/nsw/rules/)
+[Queensland rules](https://rentrise.au/qld/rules/) · [NSW rules](https://rentrise.au/nsw/rules/) · [Victoria rules](https://rentrise.au/vic/rules/)
 
 ## States covered
 
@@ -53,6 +53,7 @@ Want the rules first? Each state has a plain-English guide:
 |---|---|---|---|
 | Queensland | [rentrise.au/qld](https://rentrise.au/qld/) | [rentrise.au/qld/rules](https://rentrise.au/qld/rules/) | Residential Tenancies Authority (RTA) |
 | New South Wales | [rentrise.au/nsw](https://rentrise.au/nsw/) | [rentrise.au/nsw/rules](https://rentrise.au/nsw/rules/) | NSW Fair Trading and the Tenants' Union of NSW |
+| Victoria | [rentrise.au/vic](https://rentrise.au/vic/) | [rentrise.au/vic/rules](https://rentrise.au/vic/rules/) | Victorian Government, Rental Dispute Resolution Victoria and Tenants Victoria |
 
 Other states are coming. You can [request your state](https://rentrise.au/contact/?topic=state) on the site.
 
@@ -75,6 +76,8 @@ RentRise is a static site written in plain HTML, CSS and JavaScript, with no fra
 ├── index.html            Home page and state picker
 ├── qld/                  Queensland checker and rules guide
 ├── nsw/                  NSW checker and rules guide
+├── vic/                  Victoria checker and rules guide
+├── about/                About page
 ├── contact/              Contact page
 ├── privacy/              Privacy policy
 ├── thanks/               Contact form confirmation
@@ -82,6 +85,8 @@ RentRise is a static site written in plain HTML, CSS and JavaScript, with no fra
 │   ├── site.css          Shared styles (light and dark themes)
 │   ├── qld-checker.js    Queensland rules logic
 │   ├── nsw-checker.js    NSW rules logic
+│   ├── vic-checker.js    Victoria rules logic
+│   ├── calendar.js       "Add to calendar" file builder
 │   ├── contact.js        Contact form (Web3Forms + hCaptcha)
 │   └── fonts/            Self-hosted fonts (SIL Open Font License)
 ├── _headers              Security headers for Cloudflare Pages

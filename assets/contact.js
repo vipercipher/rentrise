@@ -5,7 +5,7 @@
   // Adapt the page to the link the visitor came from, e.g. /contact/?topic=state
   var TOPICS={
     mistake:{title:'Report a mistake',lede:'Tell us what looks wrong, which page it\u2019s on, and what you expected to see. We check every report against the official source.',ph:'For example: the notice period on the QLD rules page says 2 months, but my notice said 60 days.'},
-    state:{title:'Request your state',lede:'Tell us which state you rent in. Requests help us decide which checker to build next.',ph:'For example: I rent in Victoria and would use a checker for VIC rent increases.'},
+    state:{title:'Request your state',lede:'Tell us which state you rent in. Requests help us decide which checker to build next.',ph:'For example: I rent in Western Australia and would use a checker for WA rent increases.'},
     feedback:{title:'Send feedback',lede:'Tell us what\u2019s confusing, broken or missing, or what would make RentRise more useful.',ph:'Tell us what you noticed or what you\u2019d like to see.'},
     other:{title:'Contact us',lede:'Send us a message and we\u2019ll get back to you by email.',ph:'How can we help?'}
   };
