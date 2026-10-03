@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Is my rent increase allowed? Queensland rent increase checker | RentRise</title>
+<meta name="description" content="Check if your Queensland rent increase follows the rules: the 12-month limit, 2 months' written notice and fixed-term lease terms. See the earliest legal start date and your QCAT deadline. Free.">
+<link rel="canonical" href="https://rentrise.au/qld/">
+<meta property="og:title" content="Is my rent increase allowed? Queensland checker">
+<meta property="og:description" content="Free check of the 12-month rule and notice period for Queensland renters.">
+<meta property="og:url" content="https://rentrise.au/qld/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_AU">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/public-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=11">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Queensland rent increase checker","url":"https://rentrise.au/qld/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"AUD"},"description":"Checks whether a Queensland rent increase follows the 12-month rule and notice requirements."}</script>
+</head>
+<body>
+<header class="site-head"><div class="in">
+  <a class="brand" href="/" aria-label="RentRise home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" style="fill:var(--maroon)"/><path d="M7 15.5 16 8l9 7.5V25H7z" fill="none" style="stroke:var(--surface)" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 22v-7m-3.2 3.1L16 15l3.2 3.1" fill="none" style="stroke:var(--surface)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>RentRise<span class="au">.au</span></span></a>
+  <nav class="site-nav" aria-label="Main"><a href="/qld/" aria-current="page">QLD checker</a><a href="/nsw/">NSW checker</a><a class="nav-cta" href="/contact/">Contact us</a></nav>
+</div></header>
+
+<main class="wrap">
+  <header class="page">
+    <div class="eyebrow"><span class="tag">QLD</span><span>General tenancies &amp; rooming · Rules checked 30 Sep 2026</span></div>
+    <h1>Is my rent increase allowed?</h1>
+    <p class="lede">Answer a few questions about your Queensland rent increase notice. You'll see whether the timing follows the law, the earliest date the new rent can legally start, and what to say to your agent. Want the rules in plain English first? Read <a href="/qld/rules/">Queensland rent increase rules</a>.</p>
+  </header>
+
+  <div class="grid">
+    <form id="f" class="q" novalidate>
+      <div class="sample" id="sampleBar"><span>Filled in with an <b>example</b>. Replace it with your own details.</span><button type="button" id="clear">Clear example</button></div>
+
+      <fieldset>
+        <legend>What kind of place do you rent?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="kind" id="kind-general" value="general" checked><div><b>House, unit or townhouse</b><span>A general tenancy</span></div></label>
+          <label class="opt"><input type="radio" name="kind" id="kind-rooming" value="rooming"><div><b>A room in a boarding or rooming house</b><span>A rooming accommodation agreement</span></div></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Which situation are you in?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="agr" id="agr-periodic" value="periodic" checked><div><b>No end date, or my lease has ended</b><span>Periodic agreement, or a fixed term that's about to roll over</span></div></label>
+          <label class="opt"><input type="radio" name="agr" id="agr-fixed" value="fixed"><div><b>Partway through a fixed-term lease</b><span>The increase starts before your lease end date</span></div></label>
+          <label class="opt"><input type="radio" name="agr" id="agr-new" value="new"><div><b>I've been offered a new lease at a higher rent</b><span>A renewal with a new agreement to sign</span></div></label>
+        </div>
+      </fieldset>
+
+      <fieldset id="termsBox" hidden>
+        <legend>Does your lease say the rent will go up during the term, and by how much?</legend>
+        <p class="hint">It must state both that the rent will increase and the new amount (or how it's worked out).</p>
+        <div class="inline">
+          <label class="opt"><input type="radio" name="terms" id="terms-yes" value="yes">Yes, both</label>
+          <label class="opt"><input type="radio" name="terms" id="terms-no" value="no">No</label>
+          <label class="opt"><input type="radio" name="terms" id="terms-unsure" value="unsure" checked>Not sure</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <label class="lbl" for="last">When did your current rent amount start?</label>
+        <p class="hint">The date the rent last went up at this property. The 12-month rule covers the property, not just you, so an increase for a previous tenant counts too. Your agreement must list this date.</p>
+        <input type="date" id="last">
+      </fieldset>
+
+      <fieldset id="noticeBox">
+        <label class="lbl" for="notice">When did you receive the rent increase notice?</label>
+        <input type="date" id="notice">
+      </fieldset>
+
+      <fieldset>
+        <label class="lbl" for="start" id="startLbl">When does the new rent start?</label>
+        <input type="date" id="start">
+      </fieldset>
+
+      <fieldset id="writingBox">
+        <legend>Was the notice given to you in writing?</legend>
+        <p class="hint">A letter, email or message through your agent's app counts. A phone call or a chat at an inspection doesn't.</p>
+        <div class="inline">
+          <label class="opt"><input type="radio" name="writing" id="writing-yes" value="yes" checked>Yes</label>
+          <label class="opt"><input type="radio" name="writing" id="writing-no" value="no">No</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Weekly rent</legend>
+        <div class="row2">
+          <label class="small" for="cur">Current<div class="money"><input type="number" id="cur" min="0" step="1" inputmode="decimal"></div></label>
+          <label class="small" for="nw">Proposed<div class="money"><input type="number" id="nw" min="0" step="1" inputmode="decimal"></div></label>
+        </div>
+      </fieldset>
+    </form>
+
+    <aside class="result" aria-live="polite">
+      <div class="verdict none" id="verdict"><span class="pill">Waiting</span><h2>Fill in the dates to see your result</h2></div>
+      <div class="card" id="checksCard" hidden><h3>The rules we checked</h3><ul class="checks" id="checks"></ul></div>
+      <div class="card" id="tlCard" hidden><h3>Your dates</h3><ul class="tl" id="tl"></ul></div>
+      <div class="card" id="moneyCard" hidden><h3>What the increase costs you</h3><div class="stats" id="stats"></div><p class="hint" id="moneyNote"></p></div>
+      <div class="card" id="msgCard" hidden><h3 id="msgTitle">Message to your agent</h3><p class="hint">Copy this, fill in the parts in square brackets, and send it by email so you have a record.</p><pre class="msg" id="msg"></pre><button type="button" class="btn" id="copy">Copy message</button></div>
+      <div class="card"><h3>Questions about this checker?</h3><p class="hint">If the result doesn’t match your situation or you think we’ve got a rule wrong, let us know. We can’t give legal advice about your tenancy.</p><a class="btn ghost" href="/contact/?topic=mistake">Contact us</a></div>
+      <div class="card"><h3>Free help in Queensland</h3>
+        <div class="contacts">
+          <div class="contact-row"><div><b>Residential Tenancies Authority (RTA)</b><br><span class="hint">Rules, free dispute resolution, investigations</span></div><span class="ph">1300 366 311</span></div>
+          <div class="contact-row"><div><b>QSTARS tenant advice</b><br><span class="hint">Free advice for renters</span></div><span class="ph">1300 744 263</span></div>
+          <div class="contact-row"><div><b>QCAT</b><br><span class="hint">Tribunal for disputing an excessive increase</span></div><a href="https://www.qcat.qld.gov.au/matter-types/residential-tenancy-disputes" target="_blank" rel="noopener">qcat.qld.gov.au</a></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <p class="meta"><b>General information, not legal advice.</b> Based on the Residential Tenancies Authority's <a href="https://www.rta.qld.gov.au/rent" target="_blank" rel="noopener">Rent increases</a> page, checked 30 September 2026. Some rules don't apply to exempt property owners, and QCAT can allow an earlier increase in cases of undue hardship. If your situation is unusual, call the RTA or QSTARS. Nothing you enter leaves your browser.</p>
+</main>
+
+<footer class="site-foot">
+  <div class="foot-main">
+    <div class="foot-about">
+      <a class="brand" href="/" aria-label="RentRise home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" style="fill:var(--maroon)"/><path d="M7 15.5 16 8l9 7.5V25H7z" fill="none" style="stroke:var(--surface)" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 22v-7m-3.2 3.1L16 15l3.2 3.1" fill="none" style="stroke:var(--surface)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>RentRise<span class="au">.au</span></span></a>
+      <p>Free tools that help Australian renters in Queensland and New South Wales check whether a rent increase follows the rules.</p>
+    </div>
+    <div class="foot-cols foot-cols-3">
+      <nav aria-labelledby="f-tools"><h2 id="f-tools">Tools</h2><ul><li><a href="/qld/">QLD rent increase checker</a></li><li><a href="/qld/rules/">QLD rent increase rules</a></li><li><a href="/nsw/">NSW rent increase checker</a></li><li><a href="/nsw/rules/">NSW rent increase rules</a></li></ul></nav>
+      <nav aria-labelledby="f-help"><h2 id="f-help">Official help</h2><ul><li><a href="https://www.rta.qld.gov.au/" target="_blank" rel="noopener">QLD: Residential Tenancies Authority</a></li><li><a href="https://qstars.org.au/" target="_blank" rel="noopener">QLD: QSTARS tenant advice</a></li><li><a href="https://www.nsw.gov.au/housing-and-construction/renting-a-place-to-live" target="_blank" rel="noopener">NSW: Fair Trading renting</a></li><li><a href="https://www.tenants.org.au/" target="_blank" rel="noopener">NSW: Tenants’ Union</a></li></ul></nav>
+      <nav aria-labelledby="f-contact"><h2 id="f-contact">RentRise</h2><ul><li><a href="/contact/">Contact us</a></li><li><a href="/privacy/">Privacy Policy</a></li></ul></nav>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <p>RentRise provides general information, not legal advice. It is independent and not affiliated with any government agency or tenancy authority.</p>
+    <div class="foot-bar"><p>Copyright © 2026 <a href="/">RentRise.au</a>. All rights reserved.</p><nav aria-label="Legal"><a href="/privacy/">Privacy Policy</a><a href="/contact/">Contact us</a></nav></div>
+  </div>
+</footer>
+<script src="/assets/qld-checker.js?v=10"></script>
+</body>
+</html>

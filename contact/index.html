@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact us | RentRise</title>
+<meta name="description" content="Contact RentRise to report a mistake, request your state, or send feedback about our free rent increase checker.">
+<link rel="canonical" href="https://rentrise.au/contact/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/public-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=11">
+</head>
+<body>
+<header class="site-head"><div class="in">
+  <a class="brand" href="/" aria-label="RentRise home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" style="fill:var(--maroon)"/><path d="M7 15.5 16 8l9 7.5V25H7z" fill="none" style="stroke:var(--surface)" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 22v-7m-3.2 3.1L16 15l3.2 3.1" fill="none" style="stroke:var(--surface)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>RentRise<span class="au">.au</span></span></a>
+  <nav class="site-nav" aria-label="Main"><a href="/qld/">QLD checker</a><a href="/nsw/">NSW checker</a><a class="nav-cta" href="/contact/" aria-current="page">Contact us</a></nav>
+</div></header>
+
+<main class="wrap">
+  <header class="page">
+    <div class="eyebrow"><span>Contact</span></div>
+    <h1 id="contact-title">Contact us</h1>
+    <p class="lede" id="contact-lede">Report a mistake, ask for your state to be added, or tell us how RentRise could be more useful. We read every message.</p>
+  </header>
+  <div class="contact-layout">
+    <form class="contact" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <div class="contact-head"><h2>Send us a message</h2><p>Fields marked <span class="req" aria-hidden="true">*</span> are required.</p></div>
+      <input type="hidden" name="access_key" value="d34230ee-cd25-4974-8248-620d1858fa67">
+      <input type="hidden" name="subject" value="New message from RentRise.au">
+      <input type="hidden" name="from_name" value="RentRise.au contact form">
+      <input type="hidden" name="redirect" value="https://rentrise.au/thanks/">
+      <div class="hp" aria-hidden="true"><label for="c-bot">Leave this empty</label><input type="checkbox" id="c-bot" name="botcheck" tabindex="-1" autocomplete="off"></div>
+      <div class="field-row">
+        <div class="field"><label for="c-name">Name <span class="opt-l">(optional)</span></label><input type="text" id="c-name" name="name" autocomplete="name"></div>
+        <div class="field"><label for="c-email">Email <span class="req" aria-hidden="true">*</span></label><input type="email" id="c-email" name="email" autocomplete="email" required aria-required="true" placeholder="you@example.com"></div>
+      </div>
+      <div class="field"><label for="c-topic">Topic</label>
+        <select id="c-topic" name="topic">
+          <option value="General enquiry" data-key="other">General enquiry</option>
+          <option value="Report a mistake in the rules" data-key="mistake">Report a mistake in the rules</option>
+          <option value="Request my state" data-key="state">Request my state</option>
+          <option value="Feedback or suggestion" data-key="feedback">Feedback or suggestion</option>
+                  </select>
+      </div>
+      <div class="field"><label for="c-msg">Message <span class="req" aria-hidden="true">*</span></label><textarea id="c-msg" name="message" rows="5" required aria-required="true" maxlength="3000" placeholder="Tell us what you noticed or what you'd like to see."></textarea></div>
+      <div class="captcha-wrap"><div class="h-captcha" data-captcha="true"></div></div>
+      <div class="contact-send"><button type="submit" class="btn" id="c-btn">Send message</button><span class="c-status" id="c-status" role="status" aria-live="polite"></span></div>
+      <p class="fine">We only use your details to reply to you. See our <a href="/privacy/">privacy policy</a>.</p>
+    </form>
+    <aside class="contact-aside">
+      <div class="card"><h3>What we can help with</h3>
+        <ul class="plain">
+          <li><b>Mistakes in our rules or results.</b> We check every report against the official source.</li>
+          <li><b>Adding your state.</b> Requests help us decide which state to build next.</li>
+          <li><b>Feedback on the site.</b> Anything confusing, broken or missing.</li>
+        </ul>
+      </div>
+      <div class="card"><h3>Need advice about your tenancy?</h3>
+        <p class="hint">We can’t give legal advice. For help with your own situation, contact:</p>
+        <div class="contacts">
+          <div class="contact-row"><div><b>Residential Tenancies Authority</b><br><span class="hint">Queensland rules and dispute resolution</span></div><span class="ph">1300 366 311</span></div>
+          <div class="contact-row"><div><b>QSTARS tenant advice</b><br><span class="hint">Free advice for Queensland renters</span></div><span class="ph">1300 744 263</span></div>
+          <div class="contact-row"><div><b>NSW Fair Trading</b><br><span class="hint">Renting rules in NSW</span></div><span class="ph">13 32 20</span></div>
+          <div class="contact-row"><div><b>Tenants’ Advice and Advocacy Services</b><br><span class="hint">Free advice for NSW renters</span></div><a href="https://www.tenants.org.au/" target="_blank" rel="noopener">tenants.org.au</a></div>
+        </div>
+      </div>
+      <div class="card"><h3>Prefer email?</h3><p class="hint">Write to <b>hello@rentrise.au</b>. We aim to reply within 2 business days.</p></div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="foot-main">
+    <div class="foot-about">
+      <a class="brand" href="/" aria-label="RentRise home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" style="fill:var(--maroon)"/><path d="M7 15.5 16 8l9 7.5V25H7z" fill="none" style="stroke:var(--surface)" stroke-width="2.4" stroke-linejoin="round"/><path d="M16 22v-7m-3.2 3.1L16 15l3.2 3.1" fill="none" style="stroke:var(--surface)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>RentRise<span class="au">.au</span></span></a>
+      <p>Free tools that help Australian renters in Queensland and New South Wales check whether a rent increase follows the rules.</p>
+    </div>
+    <div class="foot-cols foot-cols-3">
+      <nav aria-labelledby="f-tools"><h2 id="f-tools">Tools</h2><ul><li><a href="/qld/">QLD rent increase checker</a></li><li><a href="/qld/rules/">QLD rent increase rules</a></li><li><a href="/nsw/">NSW rent increase checker</a></li><li><a href="/nsw/rules/">NSW rent increase rules</a></li></ul></nav>
+      <nav aria-labelledby="f-help"><h2 id="f-help">Official help</h2><ul><li><a href="https://www.rta.qld.gov.au/" target="_blank" rel="noopener">QLD: Residential Tenancies Authority</a></li><li><a href="https://qstars.org.au/" target="_blank" rel="noopener">QLD: QSTARS tenant advice</a></li><li><a href="https://www.nsw.gov.au/housing-and-construction/renting-a-place-to-live" target="_blank" rel="noopener">NSW: Fair Trading renting</a></li><li><a href="https://www.tenants.org.au/" target="_blank" rel="noopener">NSW: Tenants’ Union</a></li></ul></nav>
+      <nav aria-labelledby="f-contact"><h2 id="f-contact">RentRise</h2><ul><li><a href="/contact/">Contact us</a></li><li><a href="/privacy/">Privacy Policy</a></li></ul></nav>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <p>RentRise provides general information, not legal advice. It is independent and not affiliated with any government agency or tenancy authority.</p>
+    <div class="foot-bar"><p>Copyright © 2026 <a href="/">RentRise.au</a>. All rights reserved.</p><nav aria-label="Legal"><a href="/privacy/">Privacy Policy</a><a href="/contact/">Contact us</a></nav></div>
+  </div>
+</footer>
+<script src="/assets/contact.js?v=10" defer></script>
+</body>
+</html>
