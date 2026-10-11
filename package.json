@@ -1,0 +1,12 @@
+{
+  "name": "rentrise",
+  "private": true,
+  "description": "Free rent increase checker for Australian renters",
+  "scripts": {
+    "test": "node --test tests/dates.test.js",
+    "test:tz": "TZ=Australia/Perth node --test tests/dates.test.js && TZ=America/Los_Angeles node --test tests/dates.test.js && TZ=Pacific/Kiritimati node --test tests/dates.test.js",
+    "test:scenarios": "node --test --test-concurrency=1 tests/scenarios.test.js",
+    "test:all": "npm test && npm run test:tz && npm run test:worker && npm run test:scenarios",
+    "test:worker": "node --test tests/worker.test.mjs"
+  }
+}

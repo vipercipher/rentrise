@@ -78,6 +78,9 @@ RentRise is a static site written in plain HTML, CSS and JavaScript, with no fra
 ├── nsw/                  NSW checker and rules guide
 ├── vic/                  Victoria checker and rules guide
 ├── about/                About page
+├── questions/            Short answers to common rent increase questions
+├── workers/              Cloudflare Worker for anonymous counts
+├── tests/                Automated tests
 ├── contact/              Contact page
 ├── privacy/              Privacy policy
 ├── thanks/               Contact form confirmation
@@ -87,6 +90,9 @@ RentRise is a static site written in plain HTML, CSS and JavaScript, with no fra
 │   ├── nsw-checker.js    NSW rules logic
 │   ├── vic-checker.js    Victoria rules logic
 │   ├── calendar.js       "Add to calendar" file builder
+│   ├── rr-dates.js       Shared, tested date helpers
+│   ├── share.js          Share links (answers stay after the #) and printing
+│   ├── rr-count.js       Anonymous event counts
 │   ├── contact.js        Contact form (Web3Forms + hCaptcha)
 │   └── fonts/            Self-hosted fonts (SIL Open Font License)
 ├── _headers              Security headers for Cloudflare Pages
@@ -95,6 +101,23 @@ RentRise is a static site written in plain HTML, CSS and JavaScript, with no fra
 ```
 
 To run it locally, open the folder in a terminal and start any static server, for example `python -m http.server`, then visit `http://localhost:8000`.
+
+## Tests
+
+The date maths decides legal deadlines, so it's covered by automated tests.
+
+```
+npm test               # date helpers: month ends, February, leap years, daylight saving
+npm run test:tz        # the same tests in Perth, Los Angeles and Kiritimati timezones
+npm run test:worker    # the anonymous counter Worker
+npm run test:scenarios # every checker in a real browser (needs: npm i --no-save playwright && npx playwright install chromium)
+```
+
+## Anonymous counts
+
+`assets/rr-count.js` sends only the state, the event and the result category (never dates,
+rent amounts or other answers). They're stored as daily totals by the Cloudflare Worker in
+`workers/rentrise-counter/`. See its README for setup. Totals are public at `/api/stats`.
 
 ## Disclaimer
 

@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/public-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css?v=13">
+<link rel="stylesheet" href="/assets/site.css?v=14">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Victoria rent increase checker","url":"https://rentrise.au/vic/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"AUD"},"description":"Checks whether a Victorian rent increase follows the 12-month rule and 90-day notice requirement."}</script>
 </head>
 <body>
@@ -118,6 +118,17 @@
       <div class="card" id="checksCard" hidden><h3>The rules we checked</h3><ul class="checks" id="checks"></ul></div>
       <div class="card" id="tlCard" hidden><h3>Your dates</h3><ul class="tl" id="tl"></ul></div>
       <div class="card" id="moneyCard" hidden><h3>What the increase costs you</h3><div class="stats" id="stats"></div><p class="hint" id="moneyNote"></p></div>
+      <div class="card" id="shareCard" hidden><h3>Share or save this result</h3>
+        <p class="hint">Send it to your housemate, or print the result and your message to the agent.</p>
+        <div class="share-row">
+          <button type="button" class="btn ghost" id="shareWhatsApp">WhatsApp</button>
+          <button type="button" class="btn ghost" id="shareCopy">Copy link</button>
+          <button type="button" class="btn ghost" id="shareNative" hidden>Share…</button>
+          <button type="button" class="btn ghost" id="printBtn">Print or save as PDF</button>
+        </div>
+        <p class="hint" id="shareStatus" role="status" aria-live="polite"></p>
+        <p class="fine-print">The link contains your answers, so anyone you send it to can see them. Your answers are never sent to RentRise.</p>
+      </div>
       <div class="card" id="calCard" hidden><h3>Save the key dates</h3>
         <ul class="cal-list" id="calList"></ul>
         <p class="hint">Add these dates to your phone or computer calendar, with a reminder before each one.</p>
@@ -148,7 +159,7 @@
     <div class="foot-cols foot-cols-3">
       <nav aria-labelledby="f-tools"><h2 id="f-tools">Checkers and guides</h2><ul><li><a href="/qld/">Queensland checker</a> · <a href="/qld/rules/">rules</a></li><li><a href="/nsw/">NSW checker</a> · <a href="/nsw/rules/">rules</a></li><li><a href="/vic/">Victoria checker</a> · <a href="/vic/rules/">rules</a></li></ul></nav>
       <nav aria-labelledby="f-help"><h2 id="f-help">Official help</h2><ul><li><a href="https://www.rta.qld.gov.au/" target="_blank" rel="noopener">QLD: Residential Tenancies Authority</a></li><li><a href="https://www.nsw.gov.au/housing-and-construction/renting-a-place-to-live" target="_blank" rel="noopener">NSW: Fair Trading renting</a></li><li><a href="https://www.tenants.org.au/" target="_blank" rel="noopener">NSW: Tenants’ Union</a></li><li><a href="https://www.consumer.vic.gov.au/housing/renting" target="_blank" rel="noopener">VIC: Consumer Affairs Victoria</a></li><li><a href="https://tenantsvic.org.au/" target="_blank" rel="noopener">VIC: Tenants Victoria</a></li></ul></nav>
-      <nav aria-labelledby="f-contact"><h2 id="f-contact">RentRise</h2><ul><li><a href="/about/">About RentRise</a></li><li><a href="/contact/">Contact us</a></li><li><a href="/privacy/">Privacy Policy</a></li></ul></nav>
+      <nav aria-labelledby="f-contact"><h2 id="f-contact">RentRise</h2><ul><li><a href="/questions/">Common questions</a></li><li><a href="/about/">About RentRise</a></li><li><a href="/contact/">Contact us</a></li><li><a href="/privacy/">Privacy Policy</a></li></ul></nav>
     </div>
   </div>
   <div class="foot-legal">
@@ -156,7 +167,10 @@
     <div class="foot-bar"><p>Copyright © 2026 <a href="/">RentRise.au</a>. All rights reserved.</p><nav aria-label="Legal"><a href="/privacy/">Privacy Policy</a><a href="/contact/">Contact us</a></nav></div>
   </div>
 </footer>
-<script src="/assets/calendar.js?v=13"></script>
-<script src="/assets/vic-checker.js?v=13"></script>
+<script src="/assets/rr-dates.js?v=14"></script>
+<script src="/assets/calendar.js?v=14"></script>
+<script src="/assets/vic-checker.js?v=14"></script>
+<script src="/assets/share.js?v=14"></script>
+<script src="/assets/rr-count.js?v=14"></script>
 </body>
 </html>

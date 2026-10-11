@@ -1,15 +1,11 @@
 (function(){
   const $ = id => document.getElementById(id);
   const DAY = 86400000;
+  const {parse,addMonths,addDays,days,today,noticeOf} = window.RRDates;
   const NINETY_FROM = Date.UTC(2025,10,25); // 25 Nov 2025: notice period rose from 60 to 90 days
   const EXAMPLE = {agr:'periodic', pre2019:'no', clause:'unsure', last:'2025-10-01', notice:'2026-08-01', newstart:'2026-10-01', form:'yes', content:'yes', cur:'560', nw:'610'};
 
-  function parse(v){ if(!v) return null; const [y,m,d]=v.split('-').map(Number); if(!y||!m||!d) return null; return new Date(Date.UTC(y,m-1,d)); }
-  function addMonths(dt,n){ const y=dt.getUTCFullYear(), m=dt.getUTCMonth()+n, d=dt.getUTCDate(); const last=new Date(Date.UTC(y,m+1,0)).getUTCDate(); return new Date(Date.UTC(y,m,Math.min(d,last))); }
-  function addDays(dt,n){ return new Date(dt.getTime()+n*DAY); }
   function fmt(dt){ return dt.toLocaleDateString('en-AU',{timeZone:'UTC',weekday:'short',day:'numeric',month:'short',year:'numeric'}); }
-  function days(a,b){ return Math.round((b-a)/DAY); }
-  function today(){ const n=new Date(); return new Date(Date.UTC(n.getFullYear(),n.getMonth(),n.getDate())); }
   function radio(name){ const r=document.querySelector('input[name="'+name+'"]:checked'); return r?r.value:null; }
   function setRadio(name,v){ const r=document.querySelector('input[name="'+name+'"][value="'+v+'"]'); if(r) r.checked=true; }
   function money(n){ return '$'+n.toLocaleString('en-AU',{maximumFractionDigits:0}); }
@@ -62,8 +58,8 @@
     const noticeEnd=addDays(notice,noticeDays);
     const nLabel=noticeDays+' days’ notice';
     if(notice>ns){ checks.push({s:'fail',t:'Notice arrived after the increase started',d:'You must get at least '+nLabel+' before the new rent starts.'}); fails.push('notice'); }
-    else if(ns>=noticeEnd) checks.push({s:'pass',t:'At least '+nLabel,d:'You got '+plural(days(notice,ns),'day')+' notice. The new rent can start from '+fmt(noticeEnd)+'.'+(noticeDays===60?' Notices given before 25 Nov 2025 needed 60 days.':'')});
-    else { checks.push({s:'fail',t:'Not enough notice',d:'You got '+plural(days(notice,ns),'day')+' notice. The minimum is '+noticeDays+' days'+(noticeDays===90?' (since 25 Nov 2025)':'')+', so the earliest start is '+fmt(noticeEnd)+'.'}); fails.push('notice'); }
+    else if(ns>=noticeEnd) checks.push({s:'pass',t:'At least '+nLabel,d:'You got '+noticeOf(days(notice,ns))+'. The new rent can start from '+fmt(noticeEnd)+'.'+(noticeDays===60?' Notices given before 25 Nov 2025 needed 60 days.':'')});
+    else { checks.push({s:'fail',t:'Not enough notice',d:'You got '+noticeOf(days(notice,ns))+'. The minimum is '+noticeDays+' days'+(noticeDays===90?' (since 25 Nov 2025)':'')+', so the earliest start is '+fmt(noticeEnd)+'.'}); fails.push('notice'); }
 
     if(form==='yes') checks.push({s:'pass',t:'Official notice form used',d:'Rental providers must use the Consumer Affairs Victoria form “Notice of proposed rent increase”.'});
     else if(form==='no'){ checks.push({s:'fail',t:'Official notice form not used',d:'A rent increase must be given on the Consumer Affairs Victoria form. A letter, text or email without the form isn’t a valid notice.'}); fails.push('form'); }
@@ -99,7 +95,7 @@
     renderMessage(fails,unknown,{last,minDate,gapMonths,notice,ns,earliest,noticeDays});
   }
 
-  function setVerdict(cls,pill,h,p){ const v=$('verdict'); v.className='verdict '+cls; v.innerHTML='<span class="pill">'+pill+'</span><h2>'+h+'</h2>'+(p?'<p>'+p+'</p>':''); }
+  function setVerdict(cls,pill,h,p){ const v=$('verdict'); v.className='verdict '+cls; v.innerHTML='<span class="pill">'+pill+'</span><h2>'+h+'</h2>'+(p?'<p>'+p+'</p>':'')+(cls!=='none'?'<p class="legal-note">General information, not legal advice. It\u2019s based on official Victorian sources and your answers. For advice about your situation, contact a free tenant advice service listed below.</p>':''); document.dispatchEvent(new CustomEvent('rr:verdict',{detail:{state:'vic',result:cls}})); }
   function renderChecks(list){
     const ICON={pass:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',fail:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>',unknown:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 6.2a2.1 2.1 0 1 1 3 1.9c-.7.4-1 .8-1 1.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="8" cy="12.2" r="1.2" fill="currentColor"/></svg>',na:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 8h7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>'};
     const LABEL={pass:'Passed',fail:'Failed',unknown:'Check needed',na:'Not applicable'};

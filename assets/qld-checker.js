@@ -2,14 +2,10 @@
 (function(){
   const $ = id => document.getElementById(id);
   const DAY = 86400000;
+  const {parse,addMonths,addDays,days,today,noticeOf} = window.RRDates;
   const EXAMPLE = {kind:'general', agr:'periodic', terms:'unsure', last:'2025-11-15', notice:'2026-09-20', start:'2026-11-10', writing:'yes', cur:'550', nw:'600'};
 
-  function parse(v){ if(!v) return null; const [y,m,d]=v.split('-').map(Number); if(!y||!m||!d) return null; return new Date(Date.UTC(y,m-1,d)); }
-  function addMonths(dt,n){ const y=dt.getUTCFullYear(), m=dt.getUTCMonth()+n, d=dt.getUTCDate(); const last=new Date(Date.UTC(y,m+1,0)).getUTCDate(); return new Date(Date.UTC(y,m,Math.min(d,last))); }
-  function addDays(dt,n){ return new Date(dt.getTime()+n*DAY); }
   function fmt(dt){ return dt.toLocaleDateString('en-AU',{timeZone:'UTC',weekday:'short',day:'numeric',month:'short',year:'numeric'}); }
-  function days(a,b){ return Math.round((b-a)/DAY); }
-  function today(){ const n=new Date(); return new Date(Date.UTC(n.getFullYear(),n.getMonth(),n.getDate())); }
   function radio(name){ const r=document.querySelector('input[name="'+name+'"]:checked'); return r?r.value:null; }
   function setRadio(name,v){ const r=document.querySelector('input[name="'+name+'"][value="'+v+'"]'); if(r) r.checked=true; }
   function money(n){ return '$'+n.toLocaleString('en-AU',{maximumFractionDigits:0}); }
@@ -62,8 +58,8 @@
     } else {
       noticeEnd = kind==='rooming' ? addDays(notice,28) : addMonths(notice,2);
       if(notice>start){ checks.push({s:'fail',t:'Notice arrived after the increase started',d:'You must get at least '+periodLabel+' written notice before the new rent starts.'}); fails.push('notice'); }
-      else if(start>=noticeEnd){ checks.push({s:'pass',t:'At least '+periodLabel+' notice',d:'You got '+plural(days(notice,start),'day')+' notice. The new rent can start from '+fmt(noticeEnd)+'.'}); }
-      else { checks.push({s:'fail',t:'Not enough notice',d:'You got '+plural(days(notice,start),'day')+' notice. The minimum is '+periodLabel+', so the earliest start is '+fmt(noticeEnd)+'.'}); fails.push('notice'); }
+      else if(start>=noticeEnd){ checks.push({s:'pass',t:'At least '+periodLabel+' notice',d:'You got '+noticeOf(days(notice,start))+'. The new rent can start from '+fmt(noticeEnd)+'.'}); }
+      else { checks.push({s:'fail',t:'Not enough notice',d:'You got '+noticeOf(days(notice,start))+'. The minimum is '+periodLabel+', so the earliest start is '+fmt(noticeEnd)+'.'}); fails.push('notice'); }
       // Writing
       if(writing==='yes') checks.push({s:'pass',t:'Notice given in writing',d:'It should state the new amount, the start date and when the rent last went up.'});
       else { checks.push({s:'fail',t:'Notice wasn’t in writing',d:'A rent increase needs written notice. A verbal notice isn’t valid.'}); fails.push('writing'); }
@@ -107,7 +103,7 @@
     renderMessage(fails,unknown,{last,twelve,notice,start,earliest,periodLabel,isNew,agr});
   }
 
-  function setVerdict(cls,pill,h,p){ const v=$('verdict'); v.className='verdict '+cls; v.innerHTML='<span class="pill">'+pill+'</span><h2>'+h+'</h2>'+(p?'<p>'+p+'</p>':''); }
+  function setVerdict(cls,pill,h,p){ const v=$('verdict'); v.className='verdict '+cls; v.innerHTML='<span class="pill">'+pill+'</span><h2>'+h+'</h2>'+(p?'<p>'+p+'</p>':'')+(cls!=='none'?'<p class="legal-note">General information, not legal advice. It\u2019s based on official Queensland sources and your answers. For advice about your situation, contact a free tenant advice service listed below.</p>':''); document.dispatchEvent(new CustomEvent('rr:verdict',{detail:{state:'qld',result:cls}})); }
 
   function renderChecks(list){
     const ICON={pass:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',fail:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>',unknown:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 6.2a2.1 2.1 0 1 1 3 1.9c-.7.4-1 .8-1 1.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="8" cy="12.2" r="1.2" fill="currentColor"/></svg>',na:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 8h7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>'};
